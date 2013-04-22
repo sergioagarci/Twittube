@@ -5,8 +5,8 @@ describe "usuarios/new" do
     assign(:usuario, stub_model(Usuario,
       :username => "MyString",
       :email => "MyString",
-      :crypted_password => "MyString",
-      :salt => "MyString"
+      :password => "MyString",
+      :password_confirmation => "MyString"
     ).as_new_record)
   end
 
@@ -17,8 +17,8 @@ describe "usuarios/new" do
     assert_select "form", :action => usuarios_path, :method => "post" do
       assert_select "input#usuario_username", :name => "usuario[username]"
       assert_select "input#usuario_email", :name => "usuario[email]"
-      assert_select "input#usuario_crypted_password", :name => "usuario[crypted_password]"
-      assert_select "input#usuario_salt", :name => "usuario[salt]"
+      assert_select "input#usuario_password", :name => "usuario[password]"
+      assert_select "input#usuario_password_confirmation", :name => "usuario[password_confirmation]"
     end
   end
 end

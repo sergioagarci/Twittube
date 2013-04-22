@@ -15,7 +15,5 @@ describe "usuarios/show" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Username/)
     rendered.should match(/Email/)
-    rendered.should match(/Crypted Password/)
-    rendered.should match(/Salt/)
   end
 end
