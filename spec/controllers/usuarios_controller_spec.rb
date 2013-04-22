@@ -24,7 +24,10 @@ describe UsuariosController do
   # Usuario. As you add validations to Usuario, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:username => "MyString",
+      :email => "MyString",
+      :crypted_password => "MyString",
+      :salt => "MyString"}
   end
 
   # This should return the minimal set of values that should be in the session
