@@ -14,9 +14,10 @@ describe Usuario do
     no_name_user.should_not be_valid
   end
   
-  it "should require an email address" do
-    no_email_user = User.new(@attr.merge(:email => ""))
-    no_email_user.should_not be_valid
+  it "should reject names that are too long" do
+    long_name = "a" * 51
+    long_name_user = Usuario.new(@attr.merge(:username => long_name))
+    long_name_user.should_not be_valid
   end
-  
+
 end
