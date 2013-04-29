@@ -1,4 +1,6 @@
 class Usuario < ActiveRecord::Base
+  attr_accessor :password
+  attr_accesible :username, :email, :password, :password_confirmation
   authenticates_with_sorcery!
   validates_confirmation_of :password, message: " Ambos campos deben coincidir ", if: :password
 
@@ -6,7 +8,10 @@ class Usuario < ActiveRecord::Base
 
   validates :username, :presence => true,
   					   :length   => { :maximum => 50 }
-  validates :email,   :presence => true,
-     				  :format  => { :with => email_regex },
-     				  :uniqueness => { :case_sensitive => false }
+  validates :email,    :presence => true,
+     				   :format  => { :with => email_regex },
+     				   :uniqueness => { :case_sensitive => false }
+  validates :password, :presence => true,
+  					   :confirmation => true,
+  					   :length => { within => 6..40 }
 end
