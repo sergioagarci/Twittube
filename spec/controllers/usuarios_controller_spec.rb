@@ -24,7 +24,10 @@ describe UsuariosController do
   # Usuario. As you add validations to Usuario, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:username => "MyString", :email => "MyString@example.com"}
+    {:username => "MyString",
+     :email => "MyString@example.com",
+     :password => "example12",
+     :password_confirmation => "example12"}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -43,6 +46,7 @@ describe UsuariosController do
   end
 
   describe "GET show" do
+
     it "assigns the requested usuario as @usuario" do
       usuario = Usuario.create! valid_attributes
       get :show, {:id => usuario.to_param}, valid_session
