@@ -14,4 +14,23 @@ class Usuario < ActiveRecord::Base
   validates :password, :presence => true,
   					   :confirmation => true,
   					   :length => { within => 6..40 }
+
+  before_save :crypted_password
+
+  def has_password?(submitted_password)
+    # Compare encrypted_password with the encrypted version of
+    # submitted_password.
+  end
+
+  private
+
+    def crypt_password
+      self.crypted_password = encrypt(password)
+    end
+
+    def crypt(string)
+      string # Only a temporary implementation!
+    end
+
+
 end
