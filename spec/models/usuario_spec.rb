@@ -86,5 +86,9 @@ describe Usuario do
     it "should have an encrypted password attribute" do
       @user.should respond_to(:crypted_password)
     end
+
+    it "should set the encrypted password" do
+      @user.encrypted_password.should_not be_blank
+    end
   end
 end
