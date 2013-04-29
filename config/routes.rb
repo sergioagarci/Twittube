@@ -1,4 +1,8 @@
 Twittube::Application.routes.draw do
+  get "home/index"
+  root :to => 'home#index'
+  match 'home' => "home#index"
+
   resources :usuarios
 
 
