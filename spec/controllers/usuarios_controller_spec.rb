@@ -24,14 +24,14 @@ describe UsuariosController do
   # Usuario. As you add validations to Usuario, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:username => "MyString"}
+    {:username => "MyString", :email => "MyString@example.com"}
   end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsuariosController. Be sure to keep this updated too.
   def valid_session
-    {}
+    {:username => "MyString", :email => "MyString@example.com"}
   end
 
   describe "GET index" do
