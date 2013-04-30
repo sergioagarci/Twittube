@@ -1,20 +1,17 @@
-<h1>
-  <%= gravatar_image_tag @usuario.email %>
-  <%= @usuario.username %>
-</h1>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Username:</b>
-  <%= @usuario.username %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @usuario.email %>
-</p>
-
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+		<h1>
+ 		 	<%= gravatar_for @usuario %>
+  			<%= @usuario.username %>
+		</h1>
+	</td>
+    <td class="sidebar round">
+      <strong>Nombre</strong> <%= @usuario.username %><br />
+      <strong>URL</strong>  <%= link_to usuario_path(@usuario), @usuario %>
+    </td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
 <%= link_to 'Back', usuarios_path %>

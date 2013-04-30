@@ -14,7 +14,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1.json
   def show
     @usuario = Usuario.find(params[:id])
-    @title = @user.name
+    @title = @usuario.username
     
     respond_to do |format|
       format.html # show.html.erb

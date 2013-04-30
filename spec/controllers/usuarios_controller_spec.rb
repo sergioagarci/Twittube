@@ -55,20 +55,19 @@ describe UsuariosController do
     end
 
     it "should have the right title" do
-      get :show, :id => @user
-      response.should have_selector("title", :content => @user.name)
+      get :show, :id => @usuario
+      response.should have_selector("title", :content => @usuario.username)
     end
 
     it "should include the user's name" do
-      get :show, :id => @user
-      response.should have_selector("h1", :content => @user.name)
+      get :show, :id => @usuario
+      response.should have_selector("h1", :content => @usuario.username)
     end
 
     it "should have a profile image" do
-      get :show, :id => @user
+      get :show, :id => @usuario
       response.should have_selector("h1>img", :class => "gravatar")
     end
-  end
   end
 
   describe "GET new" do
