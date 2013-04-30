@@ -5,12 +5,17 @@
  		 	<%= gravatar_for @usuario %>
   			<%= @usuario.username %>
 		</h1>
+
+		<p id="notice"><%= notice %></p>
+
+		<p>
+  			<b>Nombre:</b>
+  			<%= @usuario.username %></br>
+  			<b>Email:</b>
+  			<%= @usuario.email %>
+		</p>
 	</td>
-    <td class="sidebar round">
-      <strong>Nombre</strong> <%= @usuario.username %><br />
-      <strong>URL</strong>  <%= link_to usuario_path(@usuario), @usuario %>
-    </td>
-  </tr>
+   </tr>
 </table>
 
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |

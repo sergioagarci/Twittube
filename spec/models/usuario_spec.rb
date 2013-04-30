@@ -8,11 +8,6 @@ describe Usuario do
               :password_confirmation => "example01" }
   end
 
-  before(:each) do
-      @user = Factory(:usuario)
-      Usuario.stub!(:find, @user.id).and_return(@user)
-  end
-
   it "should create a new instance given valid attributes" do
     Usuario.create!(@attr)
   end
@@ -84,17 +79,17 @@ describe Usuario do
   end
   describe "password encryption" do
 
-  #  before(:each) do
-  #    @user = Factory(:usuario)
-  #    Usuario.stub!(:find, @user.id).and_return(@user)
-  #  end
+    before(:each) do
+      @user = Factory(:usuario)
+     Usuario.stub!(:find, @user.id).and_return(@user)
+    end
 
     it "should have an encrypted password attribute" do
       @user.should respond_to(:crypted_password)
     end
 
     it "should set the encrypted password" do
-      @user.encrypted_password.should_not be_blank
+      @user.encrypt_password.should_not be_blank
     end
 
     describe "has_password? method" do

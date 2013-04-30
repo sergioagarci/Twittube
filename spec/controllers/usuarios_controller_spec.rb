@@ -56,7 +56,7 @@ describe UsuariosController do
 
     it "should have the right title" do
       get :show, :id => @usuario
-      response.should have_selector("title", :content => @usuario.username)
+      response.should have_selector("title", :content => "Twittube")
     end
 
     it "should include the user's name" do
