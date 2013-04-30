@@ -14,7 +14,8 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1.json
   def show
     @usuario = Usuario.find(params[:id])
-
+    @title = @user.name
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @usuario }
