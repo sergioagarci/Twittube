@@ -6,7 +6,8 @@ width: 710px;
 
  
 body {
-background: url(fondo.png);
+background: url(fondo.png) ;
+
 }
 
 header {
