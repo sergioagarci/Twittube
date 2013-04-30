@@ -1,3 +1,4 @@
+require 'digest'
 class Usuario < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :username, :email, :password, :password_confirmation
@@ -18,7 +19,7 @@ class Usuario < ActiveRecord::Base
   before_save :crypted_password
 
   def has_password?(submitted_password)
-    crypted_password == crypt(submitted_password)
+    crypted_password == encrypt(submitted_password)
   end
 
   def self.authenticate(email, submitted_password)
@@ -31,7 +32,7 @@ class Usuario < ActiveRecord::Base
 
     def encrypt_password
       self.salt = make_salt unless has_password?(password)
-      self.encrypted_password = encrypt(password)
+      self.crypted_password = encrypt(password)
     end
 
     def encrypt(string)

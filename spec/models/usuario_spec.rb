@@ -6,7 +6,11 @@ describe Usuario do
               :email => "user@example.com",
               :password => "example01",
               :password_confirmation => "example01" }
-    #@usuario = Usuario.create!(@attr)
+  end
+
+  before(:each) do
+      @user = Factory(:usuario)
+      Usuario.stub!(:find, @user.id).and_return(@user)
   end
 
   it "should create a new instance given valid attributes" do
@@ -80,22 +84,27 @@ describe Usuario do
   end
   describe "password encryption" do
 
+  #  before(:each) do
+  #    @user = Factory(:usuario)
+  #    Usuario.stub!(:find, @user.id).and_return(@user)
+  #  end
+
     it "should have an encrypted password attribute" do
-      @usuario.should respond_to(:crypted_password)
+      @user.should respond_to(:crypted_password)
     end
 
     it "should set the encrypted password" do
-      @usuario.crypted_password.should_not be_blank
+      @user.encrypted_password.should_not be_blank
     end
 
     describe "has_password? method" do
 
       it "should be true if the passwords match" do
-        @usuario.has_password?(@attr[:password]).should be_true
+        @user.has_password?(@attr[:password]).should be_true
       end    
 
       it "should be false if the passwords don't match" do
-        @usuario.has_password?("invalid").should be_false
+        @user.has_password?("invalid").should be_false
       end 
     end
 
