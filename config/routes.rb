@@ -1,10 +1,17 @@
 Twittube::Application.routes.draw do
   get "home/index"
-  root :to => 'home#index'
+  
   match 'home' => "home#index"
 
   resources :usuarios
 
+  resources :usuarios_sessions
+
+  root :to => 'usuarios_sessions#new'  
+
+  match '/login' => 'usuarios_sessions#new', as: :login
+
+  match '/logout' => 'usuarios_sessions#destroy', as: :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
