@@ -1,6 +1,6 @@
 Twittube::Application.routes.draw do
   resources :usuarios
-
+  resources :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

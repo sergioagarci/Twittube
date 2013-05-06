@@ -49,7 +49,7 @@ describe UsuariosController do
   describe "GET show" do
 
     it "assigns the requested usuario as @usuario" do
-      usuario = Usuario.create! valid_attributes
+      @usuario = Usuario.create! valid_attributes
       get :show, {:id => usuario.to_param}, valid_session
       assigns(:usuario).should eq(usuario)
     end

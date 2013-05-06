@@ -4,8 +4,9 @@ class Usuario < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   #authenticates_with_sorcery!
   #validates_confirmation_of :password, message: " Ambos campos deben coincidir ", if: :password
+  has_many :microposts, dependent: :destroy
 
-   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :username, :presence => true,
   					   :length   => { :maximum => 50 }
@@ -28,7 +29,7 @@ class Usuario < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
 
-  private
+  #private
 
     def encrypt_password
       self.salt = make_salt unless has_password?(password)

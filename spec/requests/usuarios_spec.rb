@@ -80,7 +80,7 @@ describe Usuario do
   describe "password encryption" do
 
     before(:each) do
-      @user = Factory(:usuario)
+      @user = Usuario.create!(@attr)
      Usuario.stub!(:find, @user.id).and_return(@user)
     end
 
