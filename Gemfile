@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'gravatar_image_tag', '1.0.0.pre2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -21,6 +22,7 @@ gem 'sorcery'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '1.0'
 end
 
 group :production do
