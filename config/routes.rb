@@ -1,13 +1,18 @@
 Twittube::Application.routes.draw do
-  get "home/index"
+
+  root :to => 'usuarios_sessions#new'  
   
-  match 'home' => "home#index"
+  match '/home',    to: 'static_pages#home'
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match '/form', to: 'static_pages#form'
 
   resources :usuarios
 
   resources :usuarios_sessions
 
-  root :to => 'usuarios_sessions#new'  
+  
 
   match '/login' => 'usuarios_sessions#new', as: :login
 
