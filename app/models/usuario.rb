@@ -1,21 +1,24 @@
 require 'digest'
 class Usuario < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation, :password_digest
+
   #authenticates_with_sorcery!
   #validates_confirmation_of :password, message: " Ambos campos deben coincidir ", if: :password
+  has_secure_password
   has_many :microposts, dependent: :destroy
+  
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :username, :presence => true,
-  					   :length   => { :maximum => 50 }
+  					           :length   => { :maximum => 50 }
   validates :email,    :presence => true,
-     				   :format  => { :with => email_regex },
-     				   :uniqueness => { :case_sensitive => false }
+     				           :format  => { :with => email_regex },
+     				           :uniqueness => { :case_sensitive => false }
   validates :password, :presence => true,
-  					   :confirmation => true,
-  					   :length => { :within => 6..40 }
+  					           :confirmation => true,
+  					           :length => { :within => 6..40 }
 
   before_save :crypted_password
 
@@ -29,7 +32,7 @@ class Usuario < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
 
-  #private
+  private
 
     def encrypt_password
       self.salt = make_salt unless has_password?(password)
