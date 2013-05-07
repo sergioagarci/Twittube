@@ -46,6 +46,13 @@ describe UsuariosController do
     end
   end
 
+  describe "GET new" do
+    it "assigns a new usuario as @usuario" do
+      get :new, {}, valid_session
+      assigns(:usuario).should be_a_new(Usuario)
+    end
+  end
+
   describe "GET show" do
 
     it "assigns the requested usuario as @usuario" do
@@ -67,13 +74,6 @@ describe UsuariosController do
     it "should have a profile image" do
       get :show, :id => @usuario
       response.should have_selector("h1>img", :class => "gravatar")
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new usuario as @usuario" do
-      get :new, {}, valid_session
-      assigns(:usuario).should be_a_new(Usuario)
     end
   end
 
