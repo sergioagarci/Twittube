@@ -19,12 +19,16 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe UsuariosController do
+  render_views
 
   # This should return the minimal set of attributes required to create a valid
   # Usuario. As you add validations to Usuario, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:username => "MyString", :email => "MyString@example.com"}
+    {:username => "MyString",
+     :email => "MyString@example.com",
+     :password => "example12",
+     :password_confirmation => "example12"}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -42,18 +46,34 @@ describe UsuariosController do
     end
   end
 
+  describe "GET new" do
+    it "assigns a new usuario as @usuario" do
+      get :new, {}, valid_session
+      assigns(:usuario).should be_a_new(Usuario)
+    end
+  end
+
   describe "GET show" do
+
     it "assigns the requested usuario as @usuario" do
       usuario = Usuario.create! valid_attributes
       get :show, {:id => usuario.to_param}, valid_session
       assigns(:usuario).should eq(usuario)
     end
-  end
 
-  describe "GET new" do
-    it "assigns a new usuario as @usuario" do
-      get :new, {}, valid_session
-      assigns(:usuario).should be_a_new(Usuario)
+    it "should have the right title" do
+      get :show, :id => @usuario
+      response.should have_selector("title", :content => "Twittube")
+    end
+
+    it "should include the user's name" do
+      get :show, :id => @usuario
+      response.should have_selector("h1", :content => @usuario.username)
+    end
+
+    it "should have a profile image" do
+      get :show, :id => @usuario
+      response.should have_selector("h1>img", :class => "gravatar")
     end
   end
 

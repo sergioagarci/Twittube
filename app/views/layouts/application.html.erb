@@ -2,13 +2,21 @@
 <html>
 <head>
   <title>Twittube</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+   <%= csrf_meta_tags %>
+  <%= render 'layouts/stylesheets' %>
 </head>
 <body>
+		<div id="content">
+			<h1>Bienvenido a Twittube</h1>
+		</div>
+	<div class ="container" >
 
-<%= yield %>
+		<%= render 'layouts/header' %>
+		<section class="round">
 
+			<%= yield %>
+		</section>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>

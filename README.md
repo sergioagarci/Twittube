@@ -1,2 +1,7 @@
 Twittube
 ========
+
+Grupo del proyecto:
+  -
+  -
+  - 

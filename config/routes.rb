@@ -1,6 +1,22 @@
 Twittube::Application.routes.draw do
+
+  root :to => 'usuarios_sessions#new'  
+  
+  match '/home',    to: 'static_pages#home'
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match '/form', to: 'static_pages#form'
+
   resources :usuarios
 
+  resources :usuarios_sessions
+
+  
+
+  match '/login' => 'usuarios_sessions#new', as: :login
+
+  match '/logout' => 'usuarios_sessions#destroy', as: :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
