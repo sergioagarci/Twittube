@@ -1,7 +1,7 @@
 <%= form_for(@usuario) do |f| %>
   <% if @usuario.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+      <h3><%= pluralize(@usuario.errors.count, " error ") %> No se puede registrar este usuario:</h3>
 
       <ul>
       <% @usuario.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label "Nombre de usuario" %><br />
     <%= f.text_field :username %>
   </div>
   <div class="field">
@@ -20,11 +20,11 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label "Contraseña" %><br />
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Repite tu contraseña"  %><br />
     <%= f.text_field :password_confirmation %>
   </div>
   <div class="actions">
