@@ -4,11 +4,11 @@
 
 <%= form_tag usuarios_sessions_path, method: :post do %>
   <div class = "field">
-    <%= label_tag :username %>
+    <%= label_tag "Nombre de usuario"%>
     <%= text_field_tag :username %>
   </div>
   <div class = "field">
-    <%= label_tag  :password %>
+    <%= label_tag  "Contraseña" %>
     <%= text_field_tag :password  %>
   </div>
   <div class = "actions">

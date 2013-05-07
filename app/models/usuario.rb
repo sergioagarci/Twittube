@@ -1,4 +1,5 @@
 require 'digest'
+require 'bcrypt'
 class Usuario < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :username, :email, :password, :password_confirmation, :password_digest
@@ -7,7 +8,7 @@ class Usuario < ActiveRecord::Base
   #validates_confirmation_of :password, message: " Ambos campos deben coincidir ", if: :password
   has_secure_password
   has_many :microposts, dependent: :destroy
-  
+
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
