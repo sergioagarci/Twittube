@@ -9,9 +9,9 @@ Twittube::Application.routes.draw do
   match '/form', to: 'static_pages#form'
 
   resources :usuarios
-<<<<<<< HEAD
+
   resources :post
-=======
+
 
   resources :usuarios_sessions
 
@@ -20,7 +20,7 @@ Twittube::Application.routes.draw do
   match '/login' => 'usuarios_sessions#new', as: :login
 
   match '/logout' => 'usuarios_sessions#destroy', as: :logout
->>>>>>> master
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
