@@ -15,22 +15,22 @@ describe Micropost do
   subject { @micropost }
 
   it { should respond_to(:content) }
-  it { should respond_to(:user_id) }
-  it { should respond_to(:user) }
-  its(:user) { should == user }
+  it { should respond_to(:usuario_id) }
+  it { should respond_to(:usuario) }
+  its(:usuario) { should == @user }
 
   it { should be_valid }
 
   describe "accessible attributes" do
-    it "should not allow access to user_id" do
+    it "should not allow access to usuario_id" do
       expect do
-        Micropost.new(user_id: user.id)
+        Micropost.new(usuario_id: usuario.id)
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end    
   end
 
- describe "when user_id is not present" do
-    before { @micropost.user_id = nil }
+ describe "when usuario_id is not present" do
+    before { @micropost.usuario_id = nil }
     it { should_not be_valid }
   end
 
