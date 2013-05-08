@@ -9,6 +9,7 @@ class Usuario < ActiveRecord::Base
   has_secure_password
   has_many :microposts, dependent: :destroy
 
+  before_save { |user| user.email = email.downcase }
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -51,5 +52,4 @@ class Usuario < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
-
 end
