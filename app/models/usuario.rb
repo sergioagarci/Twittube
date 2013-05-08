@@ -1,7 +1,6 @@
 require 'digest'
 require 'bcrypt'
 class Usuario < ActiveRecord::Base
-  attr_accessor :password
   attr_accessible :username, :email, :password, :password_confirmation, :password_digest
 
   #authenticates_with_sorcery!
@@ -21,7 +20,9 @@ class Usuario < ActiveRecord::Base
   validates :password, :presence => true,
   					           :confirmation => true,
   					           :length => { :within => 6..40 }
-
+  validates :password_confirmation, presence: true
+end
+=begin
   before_save :crypted_password
 
   def has_password?(submitted_password)
@@ -53,3 +54,4 @@ class Usuario < ActiveRecord::Base
       Digest::SHA2.hexdigest(string)
     end
 end
+=end
