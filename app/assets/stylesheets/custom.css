@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* User show page */
 
 table.profile {
@@ -21,9 +20,6 @@ td.sidebar {
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
-
-=======
->>>>>>> master
 
 .container {
 width: 710px;
@@ -134,9 +130,7 @@ padding: 20px;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
-<<<<<<< HEAD
-
-=======
+}
 
 /* User show page */
 
@@ -160,6 +154,4 @@ td.sidebar {
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
-
->>>>>>> master
 }
