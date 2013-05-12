@@ -8,7 +8,6 @@ Twittube::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/form',    to: 'static_pages#form'
   match '/signup',  to: 'usuarios#new'
-  match '/signut', to: 'usuarios#new'
   match '/form', to: 'static_pages#form'
 
 
