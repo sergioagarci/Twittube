@@ -8,7 +8,8 @@ Twittube::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/form',    to: 'static_pages#form'
   match '/signup',  to: 'usuarios#new'
-  match '/signut', to: 'usuarios#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
   match '/form', to: 'static_pages#form'
 
 
@@ -18,6 +19,8 @@ Twittube::Application.routes.draw do
 
 
   resources :usuarios_sessions
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   
 

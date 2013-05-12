@@ -1,9 +1,10 @@
-class UsuariosSessionsController < ApplicationController
-	def new
-  	@usuario = Usuario.new
+class SessionsController < ApplicationController
+
+  def new
   end
+
   def create
-  	user = Usuario.find_by_email(params[:session][:email].downcase)
+  user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
       redirect_to user
@@ -12,8 +13,7 @@ class UsuariosSessionsController < ApplicationController
       render 'new'
     end
   end
+
   def destroy
-  	logout
-  	redirect_to(:usuarios, message: "Logged out")
   end
 end
