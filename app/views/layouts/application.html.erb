@@ -2,20 +2,14 @@
 <html>
 <head>
   <title>Twittube</title>
-   <%= render 'layouts/stylesheets' %>
    <%= csrf_meta_tags %>
+   <%= render 'layouts/stylesheets' %>
 </head>
 <body>
-	<div class ="container" >
-
-		<%= render 'layouts/header' %>
-		<section class="round">
-
-			<%= yield %>
-		</section>
-		<%= render 'layouts/footer' %>
-	</div>
+	<%= render 'layouts/header' %>
+	<div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
 </body>
 </html>
-
-

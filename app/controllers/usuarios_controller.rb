@@ -41,6 +41,15 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   # POST /usuarios.json
   def create
+    @user = Usuario.new(params[:usuario])
+    if @user.save
+      sign_in @user
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
+    else
+      render 'new'
+    end
+=begin
     @usuario = Usuario.new(params[:usuario])
 
     respond_to do |format|
@@ -52,6 +61,7 @@ class UsuariosController < ApplicationController
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PUT /usuarios/1

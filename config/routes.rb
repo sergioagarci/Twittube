@@ -1,6 +1,6 @@
 Twittube::Application.routes.draw do
 
-  root :to => 'usuarios_sessions#new'  
+  root :to => 'sessions#new'  
   
   match '/home',    to: 'static_pages#home'
   match '/help',    to: 'static_pages#help'

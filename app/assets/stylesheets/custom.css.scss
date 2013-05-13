@@ -1,138 +1,106 @@
+@import "bootstrap";
 
-/* User show page */
+/* mixins, variables, etc. */
 
-table.profile {
-  width: 100%;
-  margin-bottom: 0;
+$grayMediumLight: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
 }
 
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
-
-.profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
-}
-
-.container {
-width: 710px;
-
-}
- 
 body {
-background: url(fondo.png);
+  padding-top: 60px;
+  background: url(fondo.png);
 }
-
-header {
-padding-top: 20px;
-}
-
-header img {
-padding: 1em;
-background: #0BFF;
-} 
 
 section {
-margin-top: 1em;
-font-size: 120%;
-padding: 20px;
-background: #fff;
+  overflow: auto;
 }
 
-section h1 {
-font-size: 200%;
+textarea {
+  resize: vertical;
 }
 
- 
-
-/* Links */
-
-a {
-color: #09c;
-text-decoration: none;
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-a:hover {
-color: #069;
-text-decoration: underline;
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
 }
 
-a:visited {
-color: #069;
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
- 
-
-/* Navigation */
-
-nav {
-float: right;
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
 }
 
-nav {
-background-color: black;
-padding: 0 0.7em;
-white-space: nowrap;
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
 
-nav ul {
-margin: 0;
-padding: 0;
-}
- 
-nav ul li {
-list-style-type: none;
-display: inline-block;
-padding: 0.8em 0;
-}
 
-nav ul li a {
-padding: 0 5px;
-font-weight: bold;
-}
+/* header */
 
-nav ul li a:visited {
-color: #09c;
-}
-
-nav ul li a:hover {
-text-decoration: underline;
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
 
- 
+/* footer */
 
-/* Sign up button */
-
-a.signup_button {
-margin-left: auto;
-margin-right: auto;
-display: block;
-text-align: center;
-width: 100px;
-color: #fff;
-background: #006400;
-font-size: 150%;
-font-weight: bold;
-padding: 20px;
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover { 
+      color: $grayDarker;
+    }
+  }  
+  small { 
+    float: left; 
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
 }
-
-/* Round corners */
-
-.round {
--moz-border-radius: 10px;
--webkit-border-radius: 10px;
-border-radius: 10px;
-}
-
 /* User show page */
 
 table.profile {
@@ -156,3 +124,4 @@ td.sidebar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
+

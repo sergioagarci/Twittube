@@ -115,6 +115,11 @@ describe Usuario do
     end
   end
 
+   describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
+
   describe "micropost associations" do
 
     before { @user.save }
